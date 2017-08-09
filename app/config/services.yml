@@ -14,8 +14,6 @@ services:
 
   app.markdown_extension:
     class: AppBundle\Twig\MarkdownExtension
-    tags:
-        - { name: twig.extension }
     #arguments: ['@app.markdown_transformer']
 
   app.security.login_form_authenticator:
