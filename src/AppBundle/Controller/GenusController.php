@@ -75,7 +75,7 @@ class GenusController extends Controller {
   public function showAction(Genus $genus) {
     $em = $this->getDoctrine()->getManager();
 
-    $markdownTransformer = $this->get('app.markdown_transformer');
+    $markdownTransformer = $this->get(MarkdownTransformer::class);
     $funFact = $markdownTransformer->parse($genus->getFunFact());
 
     $this->get('logger')
