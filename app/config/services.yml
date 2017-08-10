@@ -44,8 +44,3 @@ services:
       - ['We are *never* going to figure this out', 'Why even try again?', 'Facepalm']
     public: true  
 
-  app.discouraging_message_generator:
-    class: AppBundle\Service\MessageManager
-    arguments:
-      - ['We are *never* going to figure this out', 'Why even try again?', 'Facepalm']
-    public: true  
