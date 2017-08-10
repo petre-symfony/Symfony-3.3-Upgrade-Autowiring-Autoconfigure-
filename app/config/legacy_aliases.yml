@@ -1,3 +1,0 @@
-services:
-  app.doctrine.hash_password_listener: '@AppBundle\Doctrine\HashPasswordListener'
-  app.form.help_form_extenion: '@AppBundle\Form\TypeExtension\HelpFormExtension'
