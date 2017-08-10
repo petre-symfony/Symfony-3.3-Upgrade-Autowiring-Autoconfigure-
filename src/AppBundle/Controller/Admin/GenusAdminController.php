@@ -59,7 +59,7 @@ class GenusAdminController extends Controller {
   /**
    * @Route("/genus/{id}/edit", name="admin_genus_edit")
    */
-  public function editAction(Request $request, Genus $genus) {
+  public function editAction(Request $request, Genus $genus, MessageManager $messageManager) {
     $form = $this->createForm(GenusFormType::class, $genus);
 
     // only handles data on POST
@@ -73,7 +73,7 @@ class GenusAdminController extends Controller {
 
       $this->addFlash(
         'success',
-        $this->get(MessageManager::class)->getEncouragingMessage()
+        $messageManager->getEncouragingMessage()
       );
 
       return $this->redirectToRoute('admin_genus_edit', [
@@ -82,7 +82,7 @@ class GenusAdminController extends Controller {
     }  elseif ($form->isSubmitted()) {
       $this->addFlash(
         'error',
-        $this->get(MessageManager::class)->getDiscouragingMessage()
+        $messageManager->getDiscouragingMessage()
       );
     }
 
