@@ -38,13 +38,14 @@ services:
     tags:
       - { name: form.type_extension, extended_type: Symfony\Component\Form\Extension\Core\Type\FormType }
 
-  AppBundle\Service\MessageGenerator:
+  AppBundle\Service\MessageManager:
     arguments:
       - ['You can do it!', 'Dude, sweet!', 'Woot!']
+      - ['We are *never* going to figure this out', 'Why even try again?', 'Facepalm']
     public: true  
 
   app.discouraging_message_generator:
-    class: AppBundle\Service\MessageGenerator
+    class: AppBundle\Service\MessageManager
     arguments:
       - ['We are *never* going to figure this out', 'Why even try again?', 'Facepalm']
     public: true  
