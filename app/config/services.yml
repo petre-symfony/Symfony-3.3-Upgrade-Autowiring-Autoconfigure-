@@ -46,3 +46,6 @@ services:
       - ['We are *never* going to figure this out', 'Why even try again?', 'Facepalm']
  
 
+  AppBundle\EventSubscriber\AddNiceHeaderSubscriber: 
+    arguments:
+      $showDiscouragingMessage: true
