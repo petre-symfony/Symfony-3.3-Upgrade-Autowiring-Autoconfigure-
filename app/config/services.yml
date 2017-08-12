@@ -29,7 +29,7 @@ services:
     
   AppBundle\Service\MarkdownTransformer:
     arguments: 
-      $cache: '@doctrine_cache.providers.my_markdown_cache'
+      $cacheDriver: '@doctrine_cache.providers.my_markdown_cache'
 
 
   AppBundle\Doctrine\HashPasswordListener:
