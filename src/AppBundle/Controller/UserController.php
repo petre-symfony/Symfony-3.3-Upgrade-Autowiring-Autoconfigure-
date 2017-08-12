@@ -8,12 +8,13 @@ use AppBundle\Form\UserRegistrationForm;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Security\LoginFormAuthenticator;
 
 class UserController extends Controller {
   /**
    * @Route("/register", name="user_register")
    */
-  public function registerAction(Request $request) {
+  public function registerAction(Request $request, LoginFormAuthenticator $loginFormAuthenticator) {
     $form = $this->createForm(UserRegistrationForm::class);
 
     $form->handleRequest($request);
@@ -30,7 +31,7 @@ class UserController extends Controller {
         ->authenticateUserAndHandleSuccess(
           $user,
           $request,
-          $this->get('app.security.login_form_authenticator'),
+          $loginFormAuthenticator,
           'main'
         );
     }
